@@ -1,40 +1,42 @@
 
-### 01. Inisialisasi Server
-Tahap ini menunjukkan proses menjalankan aplikasi Express menggunakan Nodemon. Server berhasil dijalankan dan dapat diakses melalui `http://localhost:3000`.
+## Dokumentasi Praktikum
 
-![Inisialisasi Server](screenshots/01-init-server.png)
+### 1. Inisialisasi Server Express
+Screenshot ini menunjukkan proses awal pembuatan server menggunakan Express.js. Server dijalankan untuk memastikan aplikasi dapat berjalan pada port yang telah ditentukan.
 
-### 02. Pengujian Static File dan 404
-Pengujian dilakukan untuk memastikan aplikasi dapat menangani permintaan halaman yang tidak ditemukan. Jika URL yang diakses tidak sesuai dengan route yang tersedia, aplikasi menampilkan respons `404 Not Found`.
+![Inisialisasi Server](docs/screenshots/01-init-server.png)
 
-![Static File dan 404](screenshots/02-static-404-png.png)
+### 2. Pengujian Static File dan 404
+Screenshot ini menunjukkan pengujian akses halaman atau file statis. Jika alamat yang diminta tidak ditemukan, aplikasi menampilkan respons 404.
 
-### 03. EJS Partials
-Pada tahap ini, tampilan halaman disusun menggunakan EJS partials agar bagian antarmuka yang digunakan berulang dapat dipisahkan ke dalam file tersendiri. Pendekatan ini membantu menjaga struktur view tetap rapi dan mudah dikelola.
+![Static File dan 404](docs/screenshots/02-static-404.png)
 
-![EJS Partials](screenshots/03-ejs-partials.png)
+### 3. Implementasi EJS Partials
+Screenshot ini menunjukkan penggunaan EJS partials untuk memisahkan bagian header dan footer agar dapat digunakan kembali pada beberapa halaman.
 
-### 04. Refactoring MVC
-Tahap ini menunjukkan pemisahan tanggung jawab aplikasi menggunakan pola Model-View-Controller (MVC). Routing ditempatkan di folder `routes/`, logika request dan response berada di `controllers/`, sedangkan tampilan dikelola di folder `views/`.
+![EJS Partials](docs/screenshots/03-ejs-partials.png)
 
-![MVC Refactor](screenshots/04-mvc-refactor.png)
+### 4. Refactoring ke Pola MVC
+Screenshot ini menunjukkan pemisahan kode aplikasi ke dalam model struktur MVC yang digunakan pada praktikum, yaitu routes, controllers, dan views agar kode lebih terorganisasi.
 
-### 05. Pengujian Form POST
-Pengujian dilakukan dengan mengirimkan data dari form menggunakan metode POST. Controller menerima data melalui `req.body`, menampilkannya di terminal menggunakan `console.log()`, kemudian mengarahkan pengguna kembali ke halaman katalog.
+![MVC Refactor](docs/screenshots/04-mvc-refactor.png)
 
-![Pengujian Form POST](screenshots/05-post-payload.png)
+### 5. Pengujian POST Payload
+Screenshot ini menunjukkan pengiriman data formulir menggunakan metode POST. Data yang dikirim dapat diperiksa melalui `req.body` setelah middleware `express.urlencoded()` dipasang.
 
-### 06. Error Cannot Read Properties of Undefined
-Error ini diuji dengan menonaktifkan middleware `express.urlencoded()`. Akibatnya, data form tidak tersedia melalui `req.body`, sehingga akses terhadap properti data menghasilkan error. Perbaikan dilakukan dengan mengaktifkan kembali middleware tersebut.
+![POST Payload](docs/screenshots/05-post-payload.png)
 
-![Error Undefined](screenshots/06-error-undefined.png)
+### 6. Penanganan Error Undefined
+Screenshot ini mendokumentasikan error ketika data yang diakses bernilai `undefined`. Salah satu penyebabnya adalah middleware untuk membaca data formulir belum dipasang atau urutannya belum tepat.
 
-### 07. Error Failed to Lookup View
-Pengujian dilakukan dengan mengubah path view menjadi tidak sesuai dengan lokasi file EJS. Express tidak dapat menemukan template yang diminta. Error diperbaiki dengan mengembalikan path view ke lokasi yang benar.
+![Error Undefined](docs/screenshots/06-error-undefined.png)
 
-![Error Lookup View](screenshots/07-error-lookup.png)
+### 7. Penanganan Error Lookup View
+Screenshot ini menunjukkan error ketika Express tidak dapat menemukan file view yang diminta. Hal ini dapat terjadi jika nama file atau lokasi folder view tidak sesuai.
 
-### 08. Error EADDRINUSE
-Pengujian ini menunjukkan konflik penggunaan port ketika port 3000 sudah digunakan oleh proses server lain. Percobaan membuka port yang sama menghasilkan error `EADDRINUSE`.
+![Error Lookup View](docs/screenshots/07-error-lookup.png)
 
-![Error EADDRINUSE](screenshots/08-error-port.png)
+### 8. Penanganan Error Port
+Screenshot ini menunjukkan error `EADDRINUSE`, yaitu ketika port yang ingin digunakan sudah dipakai oleh proses lain. Solusinya adalah menghentikan proses tersebut atau menggunakan port lain.
+
+![Error Port](docs/screenshots/08-error-port.png)
