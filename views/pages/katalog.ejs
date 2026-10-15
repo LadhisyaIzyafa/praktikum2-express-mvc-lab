@@ -1,0 +1,28 @@
+<%- include('../partials/header', { pageTitle: pageTitle }) %>
+
+<section>
+    <h2><%= pageTitle %></h2>
+    <p>Selamat datang di halaman katalog produk.</p>
+
+    <div id="katalog">
+        <h3>Daftar Katalog</h3>
+        <p>Halaman ini disiapkan untuk menampilkan daftar produk.</p>
+    </div>
+
+    <h3>Form Tambah Produk</h3>
+
+    <form action="/katalog/tambah" method="POST">
+        <label for="namaProduk">Nama Produk:</label>
+        <input
+            type="text"
+            id="namaProduk"
+            name="namaProduk"
+            required
+        >
+        <button type="submit">Kirim Payload</button>
+    </form>
+
+    <a href="/">Kembali ke Beranda</a>
+</section>
+
+<%- include('../partials/footer') %>
